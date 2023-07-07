@@ -19,7 +19,7 @@ export default function Step1() {
       }}
     >
       <ErrorIcon color="error" sx={{ fontSize: 50 }} />
-      <h3>页面错误</h3>
+      <h3>网络错误</h3>
       <br></br>
       <p>请稍后刷新页面重试</p>
     </Box>
