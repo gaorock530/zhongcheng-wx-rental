@@ -184,7 +184,7 @@ export default function Step1({ next }: { next: any }) {
           variant="outlined"
           size="large"
           sx={{ width: "100%", marginTop: "1rem" }}
-          disabled={loading}
+          disabled={loading || error.community || error.name || error.phone || error.usage}
         >
           提交
         </Button>
