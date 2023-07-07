@@ -23,7 +23,7 @@
 
 body {
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
   min-width: 320px;
   max-width: 1200px;
 }

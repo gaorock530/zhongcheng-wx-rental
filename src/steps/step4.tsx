@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Box from "@mui/material/Box";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import WarningIcon from "@mui/icons-material/Warning";
 
 export default function Step1() {
   useEffect(() => {
@@ -18,10 +18,10 @@ export default function Step1() {
         alignItems: "center",
       }}
     >
-      <CheckCircleIcon color="success" sx={{ fontSize: 50 }} />
-      <h3>提交成功</h3>
+      <WarningIcon color="warning" sx={{ fontSize: 50 }} />
+      <h3>申请已处理</h3>
       <br></br>
-      <p>工作人员将在48小时内与您联系</p>
+      <p>请您参加公租房小区商业门面房招标项目</p>
       <p>请保持手机畅通</p>
     </Box>
   );
