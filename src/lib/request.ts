@@ -1,8 +1,8 @@
-const url = import.meta.env.MODE === 'production'?'http://wx.zhongchenggongsi.com:8080':'http://localhost:8080'
+const url = import.meta.env.MODE === 'production' ? 'http://wx.zhongchenggongsi.com:12345' : 'http://localhost:8080'
 
 export default async function requset(router: string, method = 'GET', data?: BodyInit) {
   const route = url + router
-  const headers:Record<string, string> = {}
+  const headers: Record<string, string> = {}
   // if not formdata, means data is json, must append header 'application/json'
   if (data instanceof FormData) delete headers['Content-Type']
   else headers['Content-Type'] = 'application/json'
