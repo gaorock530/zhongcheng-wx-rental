@@ -19,9 +19,23 @@ function App() {
 
   useEffect(() => {
     async function check() {
+      const params = (new URL(window.location.href)).searchParams;
+      const error = params.get('error')
+      if (error) {
+        console.log(error)
+      } else {
+        const nickname = params.get('name')
+        const headimgurl = params.get('img')
+        if (nickname) localStorage.setItem("nickname", nickname);
+        if (headimgurl) localStorage.setItem("headimgurl", headimgurl);
+      }
+
+      const openid = params.get('openid')
+
+
       let id = localStorage.getItem("id");
       if (!id) {
-        id = nanoid();
+        id = openid || nanoid();
         localStorage.setItem("id", id);
         return setStep(1);
       }
