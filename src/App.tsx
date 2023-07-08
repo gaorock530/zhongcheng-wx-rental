@@ -16,6 +16,7 @@ function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [step, setStep] = useState(0);
 
+
   useEffect(() => {
     async function check() {
       let id = localStorage.getItem("id");
@@ -25,13 +26,13 @@ function App() {
         return setStep(1);
       }
       try {
-        // weixin
-        const codeRes = await fetch(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx77b0a2f41edb5837&redirect_uri=https%3A%2F%2Fwx.zhopngchenggongsi.com%2Fapi%2Fwx_oauth_redirect&response_type=code&scope=snsapi_userinfo&state=test#wechat_redirect`, {
-          mode: 'no-cors'
-        })
-        const jsonRes = await codeRes.json()
+        if (!window.location.search) {
+          // weixin
+          await fetch(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx77b0a2f41edb5837&redirect_uri=https%3A%2F%2Fwx.zhopngchenggongsi.com%2Fapi%2Fwx_oauth_redirect&response_type=code&scope=snsapi_userinfo&state=test#wechat_redirect`, {
+            mode: 'no-cors'
+          })
+        }
 
-        console.log(jsonRes)
 
         const res = await requset(`/status/${id}`);
         if (res.error || res.status !== 200) throw Error();
@@ -48,6 +49,7 @@ function App() {
         setStep(5);
       }
     }
+
 
     check();
   }, []);
