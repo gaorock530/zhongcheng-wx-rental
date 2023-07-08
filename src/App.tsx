@@ -10,7 +10,7 @@ import Step3 from "@/steps/step3";
 import Step4 from "@/steps/step4";
 import Step5 from "@/steps/step5";
 import Step6 from "@/steps/step6";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import requset from "@/lib/request";
 
 function App() {
@@ -37,9 +37,8 @@ function App() {
 
       let id = localStorage.getItem("id");
       if (!id) {
-        id = openid || nanoid();
+        id = openid
         localStorage.setItem("id", id);
-        return setStep(1);
       }
       try {
 
