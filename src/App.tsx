@@ -9,6 +9,7 @@ import Step2 from "@/steps/step2";
 import Step3 from "@/steps/step3";
 import Step4 from "@/steps/step4";
 import Step5 from "@/steps/step5";
+import Step6 from "@/steps/step6";
 import { nanoid } from "nanoid";
 import requset from "@/lib/request";
 
@@ -31,6 +32,7 @@ function App() {
       }
 
       const openid = params.get('openid')
+      if (!openid) return setStep(6);
 
 
       let id = localStorage.getItem("id");
@@ -96,6 +98,7 @@ function App() {
       {step === 3 && <Step3 />}
       {step === 4 && <Step4 />}
       {step === 5 && <Step5 />}
+      {step === 6 && <Step6 />}
     </ThemeProvider>
   );
 }
