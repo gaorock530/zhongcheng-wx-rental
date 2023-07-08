@@ -7,9 +7,6 @@ import FormControl from "@mui/material/FormControl";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-// import FormGroup from '@mui/material/FormGroup';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
 import { Button } from "@mui/material";
 import logo from "@/assets/logo.png";
 import isMobilePhone from "validator/lib/isMobilePhone";
@@ -66,29 +63,6 @@ export default function Step1({ next }: { next: any }) {
     if (error.usage && v) setError((err) => ({ ...err, usage: false }));
   };
 
-  // const authorize = async () => {
-  //   // weixin
-  //   console.log('wenxin...')
-  //   try {
-
-  //     const res = await fetch(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx77b0a2f41edb5837&redirect_uri=https%3A%2F%2Fwx.zhongchenggongsi.com%2Fapi%2Fwx_oauth_redirect&response_type=code&scope=snsapi_userinfo&state=test#wechat_redirect`, {
-  //       mode: 'no-cors'
-  //     })
-  //     console.log(res)
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  //   console.log('end weixin.')
-
-  // }
-
-  // const onCheckChange = (e: any) => {
-  //   setChecked(e.target.checked)
-  //   if (e.target.checked) {
-  //     authorize()
-  //   }
-
-  // }
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
@@ -216,7 +190,6 @@ export default function Step1({ next }: { next: any }) {
         >
           提交
         </Button>
-        {/* <FormControlLabel control={<Checkbox checked={checked} onChange={onCheckChange} />} label="Label" /> */}
       </Box>
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
