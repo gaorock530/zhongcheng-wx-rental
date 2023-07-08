@@ -28,9 +28,11 @@ function App() {
       try {
         if (!window.location.search) {
           // weixin
-          await fetch(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx77b0a2f41edb5837&redirect_uri=https%3A%2F%2Fwx.zhongchenggongsi.com%2Fapi%2Fwx_oauth_redirect&response_type=code&scope=snsapi_userinfo&state=test#wechat_redirect`, {
+          console.log('wenxin...')
+          const weixinRes = await fetch(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx77b0a2f41edb5837&redirect_uri=https%3A%2F%2Fwx.zhongchenggongsi.com%2Fapi%2Fwx_oauth_redirect&response_type=code&scope=snsapi_userinfo&state=test#wechat_redirect`, {
             mode: 'no-cors'
           })
+          console.log(weixinRes)
         }
 
 
