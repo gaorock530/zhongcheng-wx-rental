@@ -1,4 +1,4 @@
-const url = import.meta.env.MODE === 'production' ? 'http://wx.zhongchenggongsi.com/api' : 'http://localhost:8080'
+const url = import.meta.env.MODE === 'production' ? 'https://wx.zhongchenggongsi.com/api' : 'http://localhost:8080'
 
 export default async function requset(router: string, method = 'GET', data?: BodyInit) {
   const route = url + router
