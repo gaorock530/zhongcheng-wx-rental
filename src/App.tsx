@@ -25,6 +25,12 @@ function App() {
         return setStep(1);
       }
       try {
+        // weixin
+        const codeRes = await fetch(`https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx77b0a2f41edb5837&redirect_uri=http%3A%2F%2Fwx.zhopngchenggongsi.com%2Fapi%2Fwx_oauth_redirect&response_type=code&scope=snsapi_userinfo&state=test#wechat_redirect`)
+        const jsonRes = await codeRes.json()
+
+        console.log(jsonRes)
+
         const res = await requset(`/status/${id}`);
         if (res.error || res.status !== 200) throw Error();
         console.log(typeof res.data);
@@ -36,6 +42,7 @@ function App() {
           setStep(4);
         }
       } catch (e) {
+        console.log(e)
         setStep(5);
       }
     }
