@@ -16,13 +16,11 @@ import requset from "@/lib/request";
 function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [step, setStep] = useState(0);
-  const [ua, setUa] = useState('')
-
 
   useEffect(() => {
     async function check() {
-      console.log(navigator.userAgent)
-      setUa(navigator.userAgent)
+      // check useragent
+      if (!navigator.userAgent.match(/MicroMessenger/i)) return setStep(6);
 
       const params = (new URL(window.location.href)).searchParams;
       const error = params.get('error')
@@ -35,6 +33,7 @@ function App() {
         if (headimgurl) localStorage.setItem("headimgurl", headimgurl);
       }
 
+      // check openid
       const openid = params.get('openid')
       if (!openid) return setStep(6);
 
@@ -45,7 +44,7 @@ function App() {
         localStorage.setItem("id", id);
       }
       try {
-
+        // check id status
         const res = await requset(`/status/${id}`);
         if (res.error || res.status !== 200) throw Error();
         console.log(typeof res.data);
@@ -102,7 +101,6 @@ function App() {
       {step === 4 && <Step4 />}
       {step === 5 && <Step5 />}
       {step === 6 && <Step6 />}
-      <div>{ua}</div>
     </ThemeProvider>
   );
 }
