@@ -16,10 +16,14 @@ import requset from "@/lib/request";
 function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [step, setStep] = useState(0);
+  const [ua, setUa] = useState('')
 
 
   useEffect(() => {
     async function check() {
+      console.log(navigator.userAgent)
+      setUa(navigator.userAgent)
+
       const params = (new URL(window.location.href)).searchParams;
       const error = params.get('error')
       if (error) {
@@ -98,6 +102,7 @@ function App() {
       {step === 4 && <Step4 />}
       {step === 5 && <Step5 />}
       {step === 6 && <Step6 />}
+      <div>{ua}</div>
     </ThemeProvider>
   );
 }
